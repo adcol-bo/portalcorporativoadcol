@@ -64,7 +64,7 @@
                     </div>
                 </div>
 
-                <nav class="p-4 space-y-1">
+                <nav class="p-4 space-y-1 overflow-y-auto max-h-[calc(100vh-160px)]">
                     <p class="text-xs uppercase text-zinc-400 font-bold px-3 mb-2 tracking-wider">Geral</p>
                     <button onclick="switchTab('home')" id="btn-home" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-burgundy text-white text-sm font-medium transition">
                         <i data-lucide="home" class="w-4 h-4"></i>
@@ -79,9 +79,19 @@
                         </button>
                     </div>
 
+                    <p class="text-xs uppercase text-blue-400 font-bold px-3 pt-6 mb-2 tracking-wider">Apoio ao Colaborador</p>
+                    <button onclick="switchTab('ai-assistant')" id="btn-ai-assistant" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition">
+                        <i data-lucide="bot" class="w-4 h-4 text-blue-400"></i>
+                        <span>Assistente ADCOL (IA)</span>
+                    </button>
+                    <button onclick="switchTab('onboarding')" id="btn-onboarding" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition">
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-emerald-400"></i>
+                        <span>Trilha de Capacitação</span>
+                    </button>
+
                     <p class="text-xs uppercase text-zinc-400 font-bold px-3 pt-6 mb-2 tracking-wider">Setores</p>
                     <div class="space-y-1" id="sector-menu-list">
-                        </div>
+                    </div>
                 </nav>
             </div>
 
@@ -197,7 +207,7 @@
                                         </tr>
                                     </thead>
                                     <tbody id="table-users" class="divide-y divide-zinc-100 text-zinc-700">
-                                        </tbody>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -225,7 +235,7 @@
                                 <i data-lucide="briefcase" class="w-4 h-4 mr-2 text-zinc-500"></i> Cargos e Funções
                             </h3>
                             <ul id="list-cargos" class="space-y-2 text-sm text-zinc-600">
-                                </ul>
+                            </ul>
                         </div>
 
                         <div class="lg:col-span-2 bg-white p-5 rounded-xl shadow-sm border border-zinc-200">
@@ -242,8 +252,80 @@
                                         </tr>
                                     </thead>
                                     <tbody id="table-documents" class="divide-y divide-zinc-100 text-zinc-700">
-                                        </tbody>
+                                    </tbody>
                                 </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-ai-assistant" class="hidden space-y-6 h-[calc(100vh-140px)] flex flex-col">
+                    <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl flex items-start space-x-4 flex-shrink-0">
+                        <div class="p-3 bg-blue-600 text-white rounded-full"><i data-lucide="bot" class="w-6 h-6"></i></div>
+                        <div>
+                            <h3 class="font-bold text-blue-900">Olá! Eu sou o Assistente Virtual da ADCOL</h3>
+                            <p class="text-sm text-blue-800 mt-1">Fui treinado com todos os Manuais e POPs da empresa. Me faça uma pergunta sobre processos internos, sistemas ou RH, e eu te darei o passo a passo!</p>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 bg-white border border-zinc-200 rounded-xl p-4 overflow-y-auto space-y-4 shadow-sm">
+                        <div class="flex justify-end">
+                            <div class="bg-zinc-100 p-3 rounded-xl rounded-tr-none max-w-[80%] text-sm text-zinc-700">
+                                Como faço para enviar a DCTFWeb do cliente?
+                            </div>
+                        </div>
+                        <div class="flex justify-start">
+                            <div class="bg-blue-50 p-3 rounded-xl rounded-tl-none max-w-[80%] text-sm text-zinc-800 border border-blue-100">
+                                <p class="font-bold mb-2 text-blue-900">Com base no POP do Setor Fiscal, aqui está o passo a passo:</p>
+                                <ol class="list-decimal ml-4 space-y-1 text-zinc-700">
+                                    <li>Acesse o Portal e-CAC usando o certificado digital do cliente.</li>
+                                    <li>Vá em "Declarações e Demonstrativos" e clique em "Assinar e Transmitir DCTFWeb".</li>
+                                    <li>Selecione o período de apuração correspondente.</li>
+                                    <li>Clique no botão "Transmitir" e salve o recibo de entrega na pasta do cliente na rede.</li>
+                                </ol>
+                                <p class="mt-2 text-xs text-blue-600 font-bold cursor-pointer hover:underline"><i data-lucide="file-text" class="w-3 h-3 inline"></i> Ver o Checklist Completo (Setor Fiscal)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-zinc-200 rounded-xl p-2 flex items-center shadow-sm flex-shrink-0">
+                        <input type="text" class="flex-1 p-2 outline-none text-sm" placeholder="Ex: Qual o procedimento para abrir uma empresa LTDA?">
+                        <button class="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"><i data-lucide="send" class="w-4 h-4"></i></button>
+                    </div>
+                </div>
+
+                <div id="tab-onboarding" class="hidden space-y-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-zinc-200">
+                        <h3 class="text-lg font-bold color-graphite mb-2 flex items-center">
+                            <i data-lucide="map" class="w-5 h-5 mr-2 text-emerald-600"></i> Sua Trilha de Integração (Onboarding)
+                        </h3>
+                        <p class="text-sm text-zinc-500 mb-6">Siga os passos abaixo para concluir seu treinamento inicial na ADCOL. Os processos específicos do seu setor serão liberados após a etapa geral.</p>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center p-4 border border-emerald-200 bg-emerald-50 rounded-lg">
+                                <div class="bg-emerald-500 text-white p-2 rounded-full mr-4"><i data-lucide="check" class="w-4 h-4"></i></div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-emerald-900 text-sm">Passo 1: Boas-vindas e Institucional</h4>
+                                    <p class="text-xs text-emerald-700">Leitura do Código de Conduta e Planejamento Estratégico.</p>
+                                </div>
+                                <span class="text-xs font-bold text-emerald-600 bg-emerald-100 px-2 py-1 rounded">Concluído</span>
+                            </div>
+
+                            <div class="flex items-center p-4 border-2 border-emerald-500 bg-white rounded-lg shadow-sm">
+                                <div class="bg-emerald-100 text-emerald-600 p-2 rounded-full mr-4"><i data-lucide="play" class="w-4 h-4"></i></div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-zinc-800 text-sm">Passo 2: Sistemas Internos</h4>
+                                    <p class="text-xs text-zinc-500">Treinamento de como utilizar o sistema contábil principal.</p>
+                                </div>
+                                <button class="text-xs font-bold text-white bg-emerald-500 hover:bg-emerald-600 px-4 py-2 rounded transition shadow-sm">Iniciar Módulo</button>
+                            </div>
+
+                            <div class="flex items-center p-4 border border-zinc-200 bg-zinc-50 rounded-lg opacity-60">
+                                <div class="bg-zinc-200 text-zinc-500 p-2 rounded-full mr-4"><i data-lucide="lock" class="w-4 h-4"></i></div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-zinc-600 text-sm">Passo 3: Processos Específicos do Seu Setor</h4>
+                                    <p class="text-xs text-zinc-400">Bloqueado. Conclua os passos anteriores.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -252,7 +334,7 @@
             </div>
 
             <footer class="mt-auto py-3 px-6 border-t border-zinc-200 text-center text-[11px] text-zinc-400 bg-white flex-shrink-0">
-                <p>&copy; 2026 ADCOL Assessoria &amp; Consultoria Cont&aacute;bil. Todos os direitos reservados. Sistema de uso restrito e exclusivo para colaboradores autorizados. A reprodu&ccedil;&atilde;o ou distribui&ccedil;&atilde;o n&atilde;o autorizada est&aacute; sujeita a penalidades legais.</p>
+                <p>&copy; 2026 ADCOL Assessoria &amp; Consultoria Cont&aacute;bil. Todos os direitos reservados. Sistema de uso restrito e exclusivo para colaboradores autorizados.</p>
             </footer>
 
         </main>
@@ -284,7 +366,7 @@
                     <div>
                         <label class="block text-xs font-bold uppercase text-zinc-500 mb-1">Setor Destino</label>
                         <select id="modal-doc-sector" class="w-full p-2 border border-zinc-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8A151B]">
-                            </select>
+                        </select>
                     </div>
                 </div>
                 <div>
@@ -301,7 +383,6 @@
             </form>
         </div>
     </div>
-
     <script>
         const setores = ["Diretoria", "Pessoal", "Fiscal", "Contábil", "TI", "Legalização"];
         
@@ -359,9 +440,17 @@
             activeTab = target;
             
             document.getElementById('btn-home').className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition";
+            
             if (document.getElementById('btn-admin-panel')) {
                 document.getElementById('btn-admin-panel').className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition";
             }
+            if (document.getElementById('btn-ai-assistant')) {
+                document.getElementById('btn-ai-assistant').className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition";
+            }
+            if (document.getElementById('btn-onboarding')) {
+                document.getElementById('btn-onboarding').className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition";
+            }
+
             setores.forEach(s => {
                 const btn = document.getElementById(`btn-sector-${s}`);
                 if(btn) btn.className = "w-full flex items-center justify-between px-3 py-2 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition";
@@ -370,6 +459,8 @@
             document.getElementById('tab-home').classList.add('hidden');
             document.getElementById('tab-admin-panel').classList.add('hidden');
             document.getElementById('tab-sector').classList.add('hidden');
+            document.getElementById('tab-ai-assistant')?.classList.add('hidden');
+            document.getElementById('tab-onboarding')?.classList.add('hidden');
 
             if (target === 'home') {
                 document.getElementById('btn-home').className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-burgundy text-white text-sm font-medium transition";
@@ -380,6 +471,14 @@
                 document.getElementById('page-title').innerText = "Administração / Controle de Usuários";
                 document.getElementById('tab-admin-panel').classList.remove('hidden');
                 renderUsersTable();
+            } else if (target === 'ai-assistant') {
+                document.getElementById('btn-ai-assistant').className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-burgundy text-white text-sm font-medium transition";
+                document.getElementById('page-title').innerText = "Assistente de IA / Dúvidas Frequentes";
+                document.getElementById('tab-ai-assistant').classList.remove('hidden');
+            } else if (target === 'onboarding') {
+                document.getElementById('btn-onboarding').className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-burgundy text-white text-sm font-medium transition";
+                document.getElementById('page-title').innerText = "Treinamento / Trilha de Capacitação";
+                document.getElementById('tab-onboarding').classList.remove('hidden');
             } else {
                 const btnSector = document.getElementById(`btn-sector-${target}`);
                 if(btnSector) btnSector.className = "w-full flex items-center justify-between px-3 py-2 rounded-lg bg-burgundy text-white text-sm font-medium transition";
