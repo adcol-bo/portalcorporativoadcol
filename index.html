@@ -31,17 +31,9 @@
             <p class="text-xs text-zinc-400 mb-6">Insira suas credenciais de acesso corporativo.</p>
             
             <form onsubmit="handleLogin(event)" class="space-y-4 text-left">
-                <div>
-                    <label class="block text-sm font-medium text-zinc-600 mb-1">E-mail Corporativo</label>
-                    <input id="login-email" type="email" required class="w-full p-2.5 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8A151B]" placeholder="usuario@adcol.com.br">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-zinc-600 mb-1">Senha</label>
-                    <input id="login-senha" type="password" required class="w-full p-2.5 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8A151B]" placeholder="••••••••">
-                </div>
-                <button type="submit" class="w-full bg-burgundy text-white py-2.5 rounded-lg font-medium bg-burgundy-hover transition shadow-md">
-                    Entrar no Portal
-                </button>
+                <div><label class="block text-sm font-medium text-zinc-600 mb-1">E-mail Corporativo</label><input id="login-email" type="email" required class="w-full p-2.5 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8A151B]" placeholder="usuario@adcol.com.br"></div>
+                <div><label class="block text-sm font-medium text-zinc-600 mb-1">Senha</label><input id="login-senha" type="password" required class="w-full p-2.5 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8A151B]" placeholder="••••••••"></div>
+                <button type="submit" class="w-full bg-burgundy text-white py-2.5 rounded-lg font-medium bg-burgundy-hover transition shadow-md">Entrar no Portal</button>
             </form>
         </div>
     </div>
@@ -52,39 +44,25 @@
             <div>
                 <div class="p-4 bg-zinc-900 flex flex-col items-center border-b border-zinc-800">
                     <img src="Logo PNG.png" alt="ADCOL Logo" class="h-14 object-contain brightness-0 invert" onerror="this.style.display='none'; document.getElementById('logo-placeholder-side').classList.remove('hidden')">
-                    <div id="logo-placeholder-side" class="hidden text-center">
-                        <span class="font-serif-adcol text-xl font-bold tracking-wide text-white">ADCOL</span>
-                    </div>
+                    <div id="logo-placeholder-side" class="hidden text-center"><span class="font-serif-adcol text-xl font-bold tracking-wide text-white">ADCOL</span></div>
                 </div>
 
                 <nav class="p-4 space-y-1 overflow-y-auto max-h-[calc(100vh-160px)]">
                     <p class="text-xs uppercase text-zinc-400 font-bold px-3 mb-2 tracking-wider">Geral</p>
-                    <button onclick="switchTab('home')" id="btn-home" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-burgundy text-white text-sm font-medium transition">
-                        <i data-lucide="home" class="w-4 h-4"></i><span>Início / Dashboard</span>
-                    </button>
+                    <button onclick="switchTab('home')" id="btn-home" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-burgundy text-white text-sm font-medium transition"><i data-lucide="home" class="w-4 h-4"></i><span>Início / Dashboard</span></button>
 
                     <div id="admin-menu-section" class="hidden pt-4 space-y-1">
                         <p class="text-xs uppercase text-red-400 font-bold px-3 mb-2 tracking-wider">Administração</p>
-                        <button onclick="switchTab('admin-panel')" id="btn-admin-panel" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition">
-                            <i data-lucide="users-cog" class="w-4 h-4 text-red-400"></i><span>Painel Geral / ADM</span>
-                        </button>
+                        <button onclick="switchTab('admin-panel')" id="btn-admin-panel" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition"><i data-lucide="users-cog" class="w-4 h-4 text-red-400"></i><span>Painel Geral / ADM</span></button>
                     </div>
 
                     <p class="text-xs uppercase text-orange-400 font-bold px-3 pt-6 mb-2 tracking-wider">Comunicação</p>
-                    <button onclick="switchTab('social')" id="btn-social" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition">
-                        <i data-lucide="message-square" class="w-4 h-4 text-orange-400"></i><span>Rede Social Interna</span>
-                    </button>
-                    <button onclick="switchTab('calendar')" id="btn-calendar" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition">
-                        <i data-lucide="calendar-days" class="w-4 h-4 text-orange-400"></i><span>Calendário de Eventos</span>
-                    </button>
+                    <button onclick="switchTab('social')" id="btn-social" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition"><i data-lucide="message-square" class="w-4 h-4 text-orange-400"></i><span>Rede Social Interna</span></button>
+                    <button onclick="switchTab('calendar')" id="btn-calendar" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition"><i data-lucide="calendar-days" class="w-4 h-4 text-orange-400"></i><span>Calendário de Eventos</span></button>
 
                     <p class="text-xs uppercase text-blue-400 font-bold px-3 pt-6 mb-2 tracking-wider">Apoio ao Colaborador</p>
-                    <button onclick="switchTab('ai-assistant')" id="btn-ai-assistant" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition">
-                        <i data-lucide="bot" class="w-4 h-4 text-blue-400"></i><span>Assistente ADCOL (IA)</span>
-                    </button>
-                    <button onclick="switchTab('onboarding')" id="btn-onboarding" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition">
-                        <i data-lucide="graduation-cap" class="w-4 h-4 text-emerald-400"></i><span>Trilha de Capacitação</span>
-                    </button>
+                    <button onclick="switchTab('ai-assistant')" id="btn-ai-assistant" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition"><i data-lucide="bot" class="w-4 h-4 text-blue-400"></i><span>Assistente ADCOL (IA)</span></button>
+                    <button onclick="switchTab('onboarding')" id="btn-onboarding" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition"><i data-lucide="graduation-cap" class="w-4 h-4 text-emerald-400"></i><span>Trilha de Capacitação</span></button>
 
                     <p class="text-xs uppercase text-zinc-400 font-bold px-3 pt-6 mb-2 tracking-wider">Setores</p>
                     <div class="space-y-1" id="sector-menu-list"></div>
@@ -94,16 +72,12 @@
             <div class="p-4 bg-zinc-900 border-t border-zinc-800 space-y-3">
                 <div class="flex items-center space-x-3">
                     <div class="w-8 h-8 rounded-full bg-burgundy flex items-center justify-center text-xs font-bold text-white uppercase" id="user-avatar-initials">--</div>
-                    <div>
-                        <p class="text-xs font-medium text-white truncate w-36" id="sidebar-user-name">Usuário</p>
-                        <span id="role-badge" class="inline-block text-[10px] bg-zinc-700 text-zinc-300 px-1.5 py-0.5 rounded uppercase font-bold tracking-wider">Cargo</span>
-                    </div>
+                    <div><p class="text-xs font-medium text-white truncate w-36" id="sidebar-user-name">Usuário</p><span id="role-badge" class="inline-block text-[10px] bg-zinc-700 text-zinc-300 px-1.5 py-0.5 rounded uppercase font-bold tracking-wider">Cargo</span></div>
                 </div>
-                <button onclick="handleLogout()" class="w-full flex items-center space-x-2 text-xs text-zinc-400 hover:text-red-400 transition pt-1">
-                    <i data-lucide="log-out" class="w-3.5 h-3.5"></i><span>Sair do sistema</span>
-                </button>
+                <button onclick="handleLogout()" class="w-full flex items-center space-x-2 text-xs text-zinc-400 hover:text-red-400 transition pt-1"><i data-lucide="log-out" class="w-3.5 h-3.5"></i><span>Sair do sistema</span></button>
             </div>
         </aside>
+
         <main class="flex-1 flex flex-col overflow-y-auto">
             <header class="bg-white shadow-sm h-14 flex items-center justify-between px-6 border-b border-zinc-200 flex-shrink-0">
                 <h2 id="page-title" class="text-lg font-semibold color-graphite font-serif-adcol">Início / Dashboard</h2>
@@ -134,11 +108,11 @@
                 <div id="tab-admin-panel" class="hidden space-y-6">
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         <div class="bg-white p-5 rounded-xl shadow-sm border border-zinc-200 h-fit">
-                            <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-400 mb-4 flex items-center"><i data-lucide="user-plus" class="w-4 h-4 mr-2 text-zinc-500"></i> Cadastrar Novo Usuário</h3>
+                            <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-400 mb-4 flex items-center"><i data-lucide="user-plus" class="w-4 h-4 mr-2 text-zinc-500"></i> Cadastrar Usuário</h3>
                             <form onsubmit="handleCreateUser(event)" class="space-y-4">
                                 <div><label class="block text-xs font-bold text-zinc-600 uppercase mb-1">Nome Completo</label><input id="adm-user-name" type="text" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm"></div>
                                 <div><label class="block text-xs font-bold text-zinc-600 uppercase mb-1">E-mail</label><input id="adm-user-email" type="email" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm"></div>
-                                <div><label class="block text-xs font-bold text-zinc-600 uppercase mb-1">Senha Inicial</label><input id="adm-user-password" type="password" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm"></div>
+                                <div><label class="block text-xs font-bold text-zinc-600 uppercase mb-1">Senha</label><input id="adm-user-password" type="password" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm"></div>
                                 <div><label class="block text-xs font-bold text-zinc-600 uppercase mb-1">Nível</label><select id="adm-user-role" class="w-full p-2 border border-zinc-300 rounded-lg text-sm"><option value="colaborador">Colaborador</option><option value="admin">Administrador</option></select></div>
                                 <button type="submit" class="w-full bg-burgundy text-white py-2 rounded-lg font-semibold text-xs">Salvar Usuário</button>
                             </form>
@@ -179,11 +153,10 @@
                     </div>
                     <div class="bg-white border border-zinc-200 rounded-xl p-2 flex items-center flex-shrink-0"><input type="text" class="flex-1 p-2 outline-none text-sm" placeholder="Digite sua pergunta..."><button class="p-2 bg-blue-600 text-white rounded-lg"><i data-lucide="send" class="w-4 h-4"></i></button></div>
                 </div>
-
                 <div id="tab-onboarding" class="hidden space-y-6">
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-zinc-200">
                         <h3 class="text-lg font-bold color-graphite mb-2"><i data-lucide="map" class="w-5 h-5 inline text-emerald-600 mr-2"></i> Trilha de Integração</h3>
-                        <p class="text-sm text-zinc-500 mb-6">Siga os passos abaixo para concluir seu treinamento inicial.</p>
+                        <p class="text-sm text-zinc-500 mb-6">Siga os passos abaixo para concluir seu treinamento.</p>
                         <div class="space-y-4">
                             <div class="flex items-center p-4 border border-emerald-200 bg-emerald-50 rounded-lg"><div class="bg-emerald-500 text-white p-2 rounded-full mr-4"><i data-lucide="check" class="w-4 h-4"></i></div><div class="flex-1"><h4 class="font-bold text-emerald-900 text-sm">Passo 1: Boas-vindas</h4></div><span class="text-xs font-bold text-emerald-600 bg-emerald-100 px-2 py-1 rounded">Concluído</span></div>
                             <div class="flex items-center p-4 border-2 border-emerald-500 bg-white rounded-lg shadow-sm"><div class="bg-emerald-100 text-emerald-600 p-2 rounded-full mr-4"><i data-lucide="play" class="w-4 h-4"></i></div><div class="flex-1"><h4 class="font-bold text-zinc-800 text-sm">Passo 2: Sistemas Internos</h4></div><button class="text-xs font-bold text-white bg-emerald-500 px-4 py-2 rounded">Iniciar</button></div>
@@ -194,41 +167,37 @@
                 <div id="tab-social" class="hidden space-y-6">
                     <div class="max-w-3xl mx-auto space-y-6">
                         <div class="bg-white p-4 rounded-xl shadow-sm border border-zinc-200">
-                            <div class="flex items-start space-x-3">
-                                <div class="w-10 h-10 rounded-full bg-burgundy flex items-center justify-center text-sm font-bold text-white shrink-0">VO</div>
+                            <form onsubmit="handleCreatePost(event)" class="flex items-start space-x-3">
+                                <div class="w-10 h-10 rounded-full bg-burgundy flex items-center justify-center text-sm font-bold text-white shrink-0" id="post-avatar">--</div>
                                 <div class="flex-1">
-                                    <textarea class="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8A151B] resize-none" rows="2" placeholder="O que você deseja compartilhar?"></textarea>
-                                    <div class="flex justify-between items-center mt-3 pt-3 border-t border-zinc-100"><div class="flex space-x-2"><button class="text-zinc-400 p-1.5"><i data-lucide="image" class="w-4 h-4"></i></button></div><button class="bg-burgundy text-white px-4 py-1.5 rounded-lg text-xs font-semibold">Publicar</button></div>
+                                    <textarea id="new-post-text" required class="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8A151B] resize-none" rows="2" placeholder="O que você deseja compartilhar?"></textarea>
+                                    <div class="flex justify-between items-center mt-3 pt-3 border-t border-zinc-100">
+                                        <div class="flex space-x-2"><button type="button" class="text-zinc-400 p-1.5"><i data-lucide="image" class="w-4 h-4"></i></button></div>
+                                        <button type="submit" class="bg-burgundy text-white px-4 py-1.5 rounded-lg text-xs font-semibold">Publicar</button>
+                                    </div>
                                 </div>
+                            </form>
+                        </div>
+                        <div id="list-posts" class="space-y-4">
                             </div>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="bg-white p-5 rounded-xl shadow-sm border border-zinc-200"><div class="flex items-center space-x-3 mb-3"><div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-sm font-bold text-white shrink-0">DR</div><div><h4 class="text-sm font-bold text-zinc-800">Diretoria ADCOL</h4><p class="text-[11px] text-zinc-400">Hoje às 09:30</p></div></div><p class="text-sm text-zinc-700 mb-4">Bom dia equipe! Batemos nossa meta de entregas. Café especial na sexta às 15h. ☕🎉</p></div>
-                            <div class="bg-white p-5 rounded-xl shadow-sm border border-zinc-200"><div class="flex items-center space-x-3 mb-3"><div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-sm font-bold text-white shrink-0">JS</div><div><h4 class="text-sm font-bold text-zinc-800">João Silva</h4><p class="text-[11px] text-zinc-400">Ontem às 16:45</p></div></div><p class="text-sm text-zinc-700 mb-4">Pessoal, acabei de subir o novo Manual de Validação do Sped na pasta do setor.</p></div>
-                        </div>
                     </div>
                 </div>
 
-                <!-- TELA: CALENDÁRIO COM O NOVO BOTÃO E LISTA DINÂMICA -->
                 <div id="tab-calendar" class="hidden space-y-6">
-                    
-                    <!-- NOVO: Área de Inserir Eventos (Apenas Admin) -->
                     <div id="admin-calendar-zone" class="hidden bg-white p-4 rounded-xl shadow-sm border border-dashed border-orange-300 flex items-center justify-between">
-                        <div class="flex items-center space-x-3">
-                            <div class="p-2 bg-orange-50 text-orange-600 rounded-full"><i data-lucide="calendar-plus"></i></div>
-                            <div>
-                                <h4 class="text-sm font-bold color-graphite">Gestão de Calendário</h4>
-                                <p class="text-xs text-zinc-500">Adicione datas e prazos importantes (Visível apenas para Diretoria).</p>
-                            </div>
-                        </div>
-                        <button onclick="openEventModal()" class="bg-orange-500 text-white px-4 py-2 rounded-lg text-xs font-semibold flex items-center hover:bg-orange-600 transition shadow-sm">
-                            <i data-lucide="plus" class="w-3.5 h-3.5 mr-1"></i> Novo Evento
-                        </button>
+                        <div class="flex items-center space-x-3"><div class="p-2 bg-orange-50 text-orange-600 rounded-full"><i data-lucide="calendar-plus"></i></div><div><h4 class="text-sm font-bold color-graphite">Gestão de Calendário</h4><p class="text-xs text-zinc-500">Adicione, edite e remova eventos.</p></div></div>
+                        <button onclick="openEventModal()" class="bg-orange-500 text-white px-4 py-2 rounded-lg text-xs font-semibold flex items-center"><i data-lucide="plus" class="w-3.5 h-3.5 mr-1"></i> Novo Evento</button>
                     </div>
 
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-zinc-200 flex flex-col md:flex-row gap-8">
                         <div class="w-full md:w-1/3">
-                            <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-400 mb-4 flex items-center"><i data-lucide="calendar" class="w-4 h-4 mr-2 text-zinc-500"></i> Mês Atual</h3>
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-400 flex items-center"><i data-lucide="calendar" class="w-4 h-4 mr-2 text-zinc-500"></i> <span id="display-month">Junho 2026</span></h3>
+                                <div class="flex space-x-2">
+                                    <button onclick="changeMonth(-1)" class="p-1 rounded hover:bg-zinc-100 text-zinc-500 transition"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
+                                    <button onclick="changeMonth(1)" class="p-1 rounded hover:bg-zinc-100 text-zinc-500 transition"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+                                </div>
+                            </div>
                             <div class="bg-stone-50 border border-zinc-200 rounded-lg p-4 text-center">
                                 <div class="grid grid-cols-7 gap-1 text-xs font-bold text-zinc-400 mb-2"><div>D</div><div>S</div><div>T</div><div>Q</div><div>Q</div><div>S</div><div>S</div></div>
                                 <div class="grid grid-cols-7 gap-1 text-sm text-zinc-700">
@@ -241,11 +210,7 @@
                         </div>
                         <div class="w-full md:w-2/3">
                             <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-400 mb-4 flex items-center"><i data-lucide="list" class="w-4 h-4 mr-2 text-zinc-500"></i> Próximos Eventos</h3>
-                            
-                            <!-- AQUI A LISTA AGORA É GERADA PELO JAVASCRIPT -->
-                            <div id="list-events" class="space-y-3">
-                            </div>
-
+                            <div id="list-events" class="space-y-3"></div>
                         </div>
                     </div>
                 </div>
@@ -255,7 +220,6 @@
         </main>
     </div>
 
-    <!-- Modal de Upload de Documentos -->
     <div id="upload-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
         <div class="bg-white rounded-xl shadow-2xl p-6 w-full max-w-md border border-zinc-100">
             <div class="flex items-center justify-between mb-4 pb-2 border-b border-zinc-100"><h3 class="text-base font-bold color-graphite"><i data-lucide="file-plus" class="w-4 h-4 inline mr-2 color-burgundy"></i> Inserir Documento</h3><button onclick="closeModal()" class="text-zinc-400 hover:text-zinc-600"><i data-lucide="x" class="w-5 h-5"></i></button></div>
@@ -265,72 +229,80 @@
                     <div><label class="block text-xs font-bold uppercase text-zinc-500 mb-1">Categoria</label><select id="modal-doc-type" class="w-full p-2 border border-zinc-300 rounded-lg text-sm"><option value="Formulário">Formulário</option><option value="Manual">Manual</option><option value="Cargo">Cargo</option></select></div>
                     <div><label class="block text-xs font-bold uppercase text-zinc-500 mb-1">Setor</label><select id="modal-doc-sector" class="w-full p-2 border border-zinc-300 rounded-lg text-sm"></select></div>
                 </div>
-                <div><label class="block text-xs font-bold uppercase text-zinc-500 mb-1">Arquivo</label><div class="border-2 border-dashed border-zinc-200 rounded-lg p-4 text-center cursor-pointer"><i data-lucide="paperclip" class="w-6 h-6 mx-auto text-zinc-400 mb-1"></i><span class="text-xs text-zinc-500">Selecionar</span></div></div>
-                <div class="flex justify-end space-x-3 pt-2"><button type="button" onclick="closeModal()" class="px-4 py-2 border border-zinc-300 rounded-lg text-xs font-semibold text-zinc-600">Cancelar</button><button type="submit" class="px-4 py-2 bg-burgundy text-white rounded-lg text-xs font-semibold">Salvar</button></div>
+                <div class="flex justify-end space-x-3 pt-2"><button type="button" onclick="closeModal()" class="px-4 py-2 border border-zinc-300 rounded-lg text-xs font-semibold">Cancelar</button><button type="submit" class="px-4 py-2 bg-burgundy text-white rounded-lg text-xs font-semibold">Salvar</button></div>
             </form>
         </div>
     </div>
 
-    <!-- NOVO: Modal de Criar Evento -->
     <div id="event-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
         <div class="bg-white rounded-xl shadow-2xl p-6 w-full max-w-md border border-zinc-100">
-            <div class="flex items-center justify-between mb-4 pb-2 border-b border-zinc-100"><h3 class="text-base font-bold color-graphite"><i data-lucide="calendar-plus" class="w-4 h-4 inline mr-2 text-orange-500"></i> Novo Evento</h3><button onclick="closeEventModal()" class="text-zinc-400 hover:text-zinc-600"><i data-lucide="x" class="w-5 h-5"></i></button></div>
-            <form onsubmit="handleCreateEvent(event)" class="space-y-4">
-                <div><label class="block text-xs font-bold uppercase text-zinc-500 mb-1">Título do Evento</label><input id="ev-titulo" type="text" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm" placeholder="Ex: Pagamento, Reunião..."></div>
+            <div class="flex items-center justify-between mb-4 pb-2 border-b border-zinc-100"><h3 class="text-base font-bold color-graphite" id="event-modal-title"><i data-lucide="calendar-plus" class="w-4 h-4 inline mr-2 text-orange-500"></i> Evento</h3><button onclick="closeEventModal()" class="text-zinc-400 hover:text-zinc-600"><i data-lucide="x" class="w-5 h-5"></i></button></div>
+            <form onsubmit="handleSaveEvent(event)" class="space-y-4">
+                <input type="hidden" id="ev-id">
+                <div><label class="block text-xs font-bold uppercase text-zinc-500 mb-1">Título do Evento</label><input id="ev-titulo" type="text" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm"></div>
                 <div class="grid grid-cols-2 gap-4">
-                    <div><label class="block text-xs font-bold uppercase text-zinc-500 mb-1">Dia (Ex: 20)</label><input id="ev-dia" type="number" min="1" max="31" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm"></div>
+                    <div><label class="block text-xs font-bold uppercase text-zinc-500 mb-1">Dia</label><input id="ev-dia" type="number" min="1" max="31" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm"></div>
                     <div><label class="block text-xs font-bold uppercase text-zinc-500 mb-1">Mês (Ex: Jun)</label><input id="ev-mes" type="text" maxlength="3" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm uppercase"></div>
                 </div>
-                <div><label class="block text-xs font-bold uppercase text-zinc-500 mb-1">Descrição Breve</label><input id="ev-desc" type="text" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm" placeholder="Ex: Sala de Reuniões"></div>
+                <div><label class="block text-xs font-bold uppercase text-zinc-500 mb-1">Descrição</label><input id="ev-desc" type="text" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm"></div>
                 <div>
-                    <label class="block text-xs font-bold uppercase text-zinc-500 mb-1">Cor do Card</label>
-                    <select id="ev-cor" class="w-full p-2 border border-zinc-300 rounded-lg text-sm">
-                        <option value="bg-blue-600">Azul (Padrão)</option>
-                        <option value="bg-red-500">Vermelho (Urgente / Pagamentos)</option>
-                        <option value="bg-emerald-500">Verde (Reuniões / Alinhamentos)</option>
-                        <option value="bg-orange-500">Laranja (Avisos Gerais)</option>
-                    </select>
+                    <label class="block text-xs font-bold uppercase text-zinc-500 mb-1">Cor</label>
+                    <select id="ev-cor" class="w-full p-2 border border-zinc-300 rounded-lg text-sm"><option value="bg-blue-600">Azul</option><option value="bg-red-500">Vermelho</option><option value="bg-emerald-500">Verde</option><option value="bg-orange-500">Laranja</option></select>
                 </div>
-                <div class="flex justify-end space-x-3 pt-2 text-xs font-semibold"><button type="button" onclick="closeEventModal()" class="px-4 py-2 border border-zinc-300 rounded-lg text-zinc-600">Cancelar</button><button type="submit" class="px-4 py-2 bg-orange-500 text-white rounded-lg shadow-sm">Salvar Evento</button></div>
+                <div class="flex justify-end space-x-3 pt-2 text-xs font-semibold"><button type="button" onclick="closeEventModal()" class="px-4 py-2 border border-zinc-300 rounded-lg">Cancelar</button><button type="submit" class="px-4 py-2 bg-orange-500 text-white rounded-lg">Salvar Evento</button></div>
             </form>
         </div>
     </div>
     <script>
         const setores = ["Diretoria", "Pessoal", "Fiscal", "Contábil", "TI", "Legalização"];
         let dbUsuarios = [{ id: 1, nome: "Diretoria ADCOL", email: "admin@adcol.com.br", senha: "123", role: "admin" }, { id: 2, nome: "João Silva", email: "user@adcol.com.br", senha: "123", role: "colaborador" }];
-        let dbDocumentos = [{ id: 1, nome: "Planejamento Anual", tipo: "Manual", sector: "Diretoria" }, { id: 2, nome: "Atribuições", tipo: "Cargo", sector: "Diretoria" }, { id: 3, nome: "Férias", tipo: "Formulário", sector: "Pessoal" }];
+        let dbDocumentos = [{ id: 1, nome: "Planejamento Anual", tipo: "Manual", sector: "Diretoria" }, { id: 2, nome: "Atribuições", tipo: "Cargo", sector: "Diretoria" }, { id: 3, nome: "Checklist DCTFWeb", tipo: "Formulário", sector: "Fiscal" }];
         
-        // NOVO BANCO DE DADOS FALSO DE EVENTOS
         let dbEventos = [
-            { id: 1, dia: "05", mes: "JUN", titulo: "Pagamento de Salários", desc: "Dia útil - Até as 18h", corClass: "bg-red-500" },
-            { id: 2, dia: "15", mes: "JUN", titulo: "Prazo Final EFD-Reinf / DCTFWeb", desc: "Prazo sem multa.", corClass: "bg-blue-600" },
-            { id: 3, dia: "25", mes: "JUN", titulo: "Reunião de Alinhamento", desc: "Sala de Reuniões Principal", corClass: "bg-emerald-500" }
+            { id: 1, dia: "05", mes: "JUN", titulo: "Pagamento de Salários", desc: "Até as 18h", corClass: "bg-red-500" },
+            { id: 2, dia: "15", mes: "JUN", titulo: "Prazo Final EFD-Reinf", desc: "Prazo sem multa.", corClass: "bg-blue-600" }
         ];
 
+        let dbPosts = [
+            { id: 1, userId: 1, nome: "Diretoria ADCOL", iniciais: "DR", role: "admin", tempo: "Hoje às 09:30", texto: "Bom dia equipe! Parabéns pelo fechamento do mês. Teremos café especial na sexta-feira às 15h. ☕🎉", corAvatar: "bg-zinc-800" },
+            { id: 2, userId: 2, nome: "João Silva", iniciais: "JS", role: "colaborador", tempo: "Ontem às 16:45", texto: "Pessoal da contabilidade, subi o novo Manual de Validação na pasta.", corAvatar: "bg-emerald-600" }
+        ];
+
+        let mesesNavegacao = ['Abril 2026', 'Maio 2026', 'Junho 2026', 'Julho 2026', 'Agosto 2026'];
+        let mesIndex = 2; // Inicia em Junho
         let sessionUser = null; let activeTab = 'home'; 
 
         document.addEventListener("DOMContentLoaded", () => {
             document.getElementById('sector-menu-list').innerHTML = setores.map(s => `<button onclick="switchTab('${s}')" id="btn-sector-${s}" class="w-full flex items-center justify-between px-3 py-2 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition"><div class="flex items-center space-x-3"><i data-lucide="folder" class="w-4 h-4 text-zinc-400"></i><span>${s}</span></div><i data-lucide="chevron-right" class="w-3 h-3 text-zinc-500"></i></button>`).join('');
             document.getElementById('modal-doc-sector').innerHTML = setores.map(s => `<option value="${s}">${s}</option>`).join('');
             document.getElementById('current-date').innerText = new Date().toLocaleDateString('pt-BR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-            renderEventos(); // Chama a função para desenhar os eventos logo que a página carrega
+            renderEventos(); renderPosts();
             try { lucide.createIcons(); } catch(e) {}
         });
 
-        // NOVA FUNÇÃO: Desenha a lista de eventos
+        function changeMonth(dir) {
+            mesIndex += dir;
+            if (mesIndex < 0) mesIndex = 0;
+            if (mesIndex >= mesesNavegacao.length) mesIndex = mesesNavegacao.length - 1;
+            document.getElementById('display-month').innerText = mesesNavegacao[mesIndex];
+        }
+
         function renderEventos() {
-            document.getElementById('list-events').innerHTML = dbEventos.map(e => `
-                <div class="flex bg-white border border-zinc-200 rounded-lg overflow-hidden shadow-sm hover:border-zinc-300 transition">
-                    <div class="${e.corClass} w-16 flex flex-col items-center justify-center text-white shrink-0">
-                        <span class="text-xs font-bold uppercase">${e.mes}</span>
-                        <span class="text-xl font-black">${e.dia}</span>
-                    </div>
-                    <div class="p-3 flex-1">
-                        <h4 class="font-bold text-sm text-zinc-800">${e.titulo}</h4>
-                        <p class="text-xs text-zinc-500 mt-1">${e.desc}</p>
-                    </div>
-                </div>
-            `).join('');
+            document.getElementById('list-events').innerHTML = dbEventos.length === 0 ? `<p class="text-sm text-zinc-400 italic">Nenhum evento cadastrado.</p>` : dbEventos.map(e => {
+                let adminBtns = '';
+                if (sessionUser && sessionUser.role === 'admin') {
+                    adminBtns = `<div class="flex flex-col border-l border-zinc-100"><button onclick="editEvent(${e.id})" class="p-2 text-zinc-400 hover:text-blue-600 border-b border-zinc-100 transition" title="Editar"><i data-lucide="edit-2" class="w-3.5 h-3.5"></i></button><button onclick="deleteEvent(${e.id})" class="p-2 text-zinc-400 hover:text-red-600 transition" title="Excluir"><i data-lucide="trash" class="w-3.5 h-3.5"></i></button></div>`;
+                }
+                return `<div class="flex bg-white border border-zinc-200 rounded-lg overflow-hidden shadow-sm hover:border-zinc-300 transition"><div class="${e.corClass} w-16 flex flex-col items-center justify-center text-white shrink-0"><span class="text-xs font-bold uppercase">${e.mes}</span><span class="text-xl font-black">${e.dia}</span></div><div class="p-3 flex-1"><h4 class="font-bold text-sm text-zinc-800">${e.titulo}</h4><p class="text-xs text-zinc-500 mt-1">${e.desc}</p></div>${adminBtns}</div>`;
+            }).join('');
+            try { lucide.createIcons(); } catch(e){}
+        }
+
+        function renderPosts() {
+            document.getElementById('list-posts').innerHTML = dbPosts.slice().reverse().map(p => {
+                let delBtn = (sessionUser && (sessionUser.role === 'admin' || sessionUser.id === p.userId)) ? `<button onclick="deletePost(${p.id})" class="text-zinc-400 hover:text-red-600 p-1" title="Apagar Publicação"><i data-lucide="trash-2" class="w-4 h-4"></i></button>` : '';
+                return `<div class="bg-white p-5 rounded-xl shadow-sm border border-zinc-200"><div class="flex items-center justify-between mb-3"><div class="flex items-center space-x-3"><div class="w-10 h-10 rounded-full ${p.corAvatar} flex items-center justify-center text-sm font-bold text-white shrink-0">${p.iniciais}</div><div><h4 class="text-sm font-bold text-zinc-800">${p.nome}</h4><p class="text-[11px] text-zinc-400">${p.tempo}</p></div></div>${delBtn}</div><p class="text-sm text-zinc-700 mb-2">${p.texto}</p></div>`;
+            }).join('');
             try { lucide.createIcons(); } catch(e){}
         }
 
@@ -342,22 +314,29 @@
             ['tab-home', 'tab-admin-panel', 'tab-social', 'tab-calendar', 'tab-ai-assistant', 'tab-onboarding', 'tab-sector'].forEach(id => { if(document.getElementById(id)) document.getElementById(id).classList.add('hidden'); });
 
             const actClass = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-burgundy text-white text-sm font-medium transition";
-            if (target === 'home') { document.getElementById('btn-home').className = actClass; document.getElementById('page-title').innerText = "Início"; document.getElementById('tab-home').classList.remove('hidden'); }
+            if (target === 'home') { document.getElementById('btn-home').className = actClass; document.getElementById('page-title').innerText = "Dashboard"; document.getElementById('tab-home').classList.remove('hidden'); }
             else if (target === 'admin-panel') { document.getElementById('btn-admin-panel').className = actClass; document.getElementById('page-title').innerText = "Administração"; document.getElementById('tab-admin-panel').classList.remove('hidden'); renderUsersTable(); }
-            else if (target === 'social') { document.getElementById('btn-social').className = actClass; document.getElementById('page-title').innerText = "Rede Social Interna"; document.getElementById('tab-social').classList.remove('hidden'); }
+            else if (target === 'social') { document.getElementById('btn-social').className = actClass; document.getElementById('page-title').innerText = "Rede Social"; document.getElementById('tab-social').classList.remove('hidden'); }
             else if (target === 'calendar') { document.getElementById('btn-calendar').className = actClass; document.getElementById('page-title').innerText = "Calendário"; document.getElementById('tab-calendar').classList.remove('hidden'); }
-            else if (target === 'ai-assistant') { document.getElementById('btn-ai-assistant').className = actClass; document.getElementById('page-title').innerText = "Assistente de IA"; document.getElementById('tab-ai-assistant').classList.remove('hidden'); }
-            else if (target === 'onboarding') { document.getElementById('btn-onboarding').className = actClass; document.getElementById('page-title').innerText = "Trilha de Capacitação"; document.getElementById('tab-onboarding').classList.remove('hidden'); }
+            else if (target === 'ai-assistant') { document.getElementById('btn-ai-assistant').className = actClass; document.getElementById('page-title').innerText = "Assistente IA"; document.getElementById('tab-ai-assistant').classList.remove('hidden'); }
+            else if (target === 'onboarding') { document.getElementById('btn-onboarding').className = actClass; document.getElementById('page-title').innerText = "Onboarding"; document.getElementById('tab-onboarding').classList.remove('hidden'); }
             else { 
                 const btn = document.getElementById(`btn-sector-${target}`); if(btn) btn.className = "w-full flex items-center justify-between px-3 py-2 rounded-lg bg-burgundy text-white text-sm font-medium transition";
-                document.getElementById('page-title').innerText = `Setor / ${target}`; document.getElementById('tab-sector').classList.remove('hidden');
-                
-                const docsSetor = dbDocumentos.filter(d => d.sector === target);
-                const cargosList = docsSetor.filter(d => d.tipo === 'Cargo');
-                document.getElementById('list-cargos').innerHTML = cargosList.length === 0 ? `<li class="text-xs text-zinc-400 italic">Vazio.</li>` : cargosList.map(c => `<li class="flex items-center space-x-2 p-1.5 hover:bg-stone-50 rounded"><i data-lucide="file-text" class="w-3.5 h-3.5 text-zinc-400"></i><span class="hover:underline cursor-pointer font-medium">${c.nome}</span></li>`).join('');
-                const docsTabela = docsSetor.filter(d => d.tipo !== 'Cargo');
-                document.getElementById('table-documents').innerHTML = docsTabela.length === 0 ? `<tr><td colspan="3" class="p-4 text-center text-xs text-zinc-400 italic">Vazio.</td></tr>` : docsTabela.map(d => `<tr class="hover:bg-stone-50"><td class="p-3 font-medium text-zinc-800">${d.nome}</td><td class="p-3"><span class="inline-block text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-700">${d.tipo}</span></td><td class="p-3 text-right"><button class="text-zinc-400 hover:text-[#8A151B] p-1"><i data-lucide="download" class="w-4 h-4"></i></button></td></tr>`).join('');
+                document.getElementById('page-title').innerText = `Setor / ${target}`; document.getElementById('tab-sector').classList.remove('hidden'); renderSectorContent(target);
             }
+            try { lucide.createIcons(); } catch(e){}
+        }
+
+        function renderSectorContent(sectorName) {
+            const docsSetor = dbDocumentos.filter(d => d.sector === sectorName);
+            const cargosList = docsSetor.filter(d => d.tipo === 'Cargo');
+            document.getElementById('list-cargos').innerHTML = cargosList.length === 0 ? `<li class="text-xs text-zinc-400 italic">Vazio.</li>` : cargosList.map(c => `<li class="flex items-center space-x-2 p-1.5 hover:bg-stone-50 rounded"><i data-lucide="file-text" class="w-3.5 h-3.5 text-zinc-400"></i><span class="hover:underline cursor-pointer font-medium">${c.nome}</span></li>`).join('');
+
+            const docsTabela = docsSetor.filter(d => d.tipo !== 'Cargo');
+            document.getElementById('table-documents').innerHTML = docsTabela.length === 0 ? `<tr><td colspan="3" class="p-4 text-center text-xs text-zinc-400 italic">Vazio.</td></tr>` : docsTabela.map(d => {
+                let delBtn = (sessionUser && sessionUser.role === 'admin') ? `<button onclick="deleteDocument(${d.id})" class="text-zinc-400 hover:text-red-600 p-1 ml-2" title="Excluir"><i data-lucide="trash" class="w-4 h-4"></i></button>` : '';
+                return `<tr class="hover:bg-stone-50"><td class="p-3 font-medium text-zinc-800">${d.nome}</td><td class="p-3"><span class="inline-block text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-700">${d.tipo}</span></td><td class="p-3 text-right flex justify-end"><button class="text-zinc-400 hover:text-[#8A151B] p-1"><i data-lucide="download" class="w-4 h-4"></i></button>${delBtn}</td></tr>`;
+            }).join('');
             try { lucide.createIcons(); } catch(e){}
         }
 
@@ -366,62 +345,63 @@
             const email = document.getElementById('login-email').value.trim().toLowerCase(); const senha = document.getElementById('login-senha').value.trim();
             const user = dbUsuarios.find(u => u.email.toLowerCase() === email && u.senha === senha);
             if (user) {
-                sessionUser = user; document.getElementById('sidebar-user-name').innerText = user.nome; document.getElementById('user-avatar-initials').innerText = user.nome.substring(0, 2);
+                sessionUser = user; document.getElementById('sidebar-user-name').innerText = user.nome; 
+                let iniciais = user.nome.substring(0, 2).toUpperCase();
+                document.getElementById('user-avatar-initials').innerText = iniciais;
+                document.getElementById('post-avatar').innerText = iniciais;
+                document.getElementById('post-avatar').className = `w-10 h-10 rounded-full ${user.role === 'admin' ? 'bg-zinc-800' : 'bg-emerald-600'} flex items-center justify-center text-sm font-bold text-white shrink-0`;
+
                 const badge = document.getElementById('role-badge');
                 if (user.role === 'admin') { 
                     if(badge) { badge.className = "inline-block text-[10px] bg-red-200 text-red-800 px-1.5 py-0.5 rounded uppercase font-bold"; badge.innerText = "Administrador"; } 
-                    document.getElementById('admin-upload-zone')?.classList.remove('hidden'); 
-                    document.getElementById('admin-menu-section')?.classList.remove('hidden'); 
-                    document.getElementById('admin-calendar-zone')?.classList.remove('hidden'); // MOSTRA O BOTÃO DE EVENTOS
-                } 
-                else { 
+                    document.getElementById('admin-upload-zone')?.classList.remove('hidden'); document.getElementById('admin-menu-section')?.classList.remove('hidden'); document.getElementById('admin-calendar-zone')?.classList.remove('hidden');
+                } else { 
                     if(badge) { badge.className = "inline-block text-[10px] bg-zinc-700 text-zinc-300 px-1.5 py-0.5 rounded uppercase font-bold"; badge.innerText = "Colaborador"; } 
-                    document.getElementById('admin-upload-zone')?.classList.add('hidden'); 
-                    document.getElementById('admin-menu-section')?.classList.add('hidden'); 
-                    document.getElementById('admin-calendar-zone')?.classList.add('hidden'); // ESCONDE O BOTÃO DE EVENTOS
+                    document.getElementById('admin-upload-zone')?.classList.add('hidden'); document.getElementById('admin-menu-section')?.classList.add('hidden'); document.getElementById('admin-calendar-zone')?.classList.add('hidden');
                 }
                 document.getElementById('login-screen').classList.add('hidden'); document.getElementById('main-app').classList.remove('hidden');
-                document.getElementById('login-email').value = ''; document.getElementById('login-senha').value = ''; switchTab('home');
+                document.getElementById('login-email').value = ''; document.getElementById('login-senha').value = ''; 
+                renderEventos(); renderPosts(); switchTab('home');
             } else alert('⚠️ Acesso Negado!');
         }
 
         function handleLogout() { sessionUser = null; document.getElementById('main-app').classList.add('hidden'); document.getElementById('login-screen').classList.remove('hidden'); }
 
-        function renderUsersTable() {
-            document.getElementById('table-users').innerHTML = dbUsuarios.map(u => `<tr class="hover:bg-stone-50"><td class="p-3 font-semibold">${u.nome}</td><td class="p-3 text-zinc-500 font-mono text-xs">${u.email}</td><td class="p-3"><span class="text-xs px-2 py-0.5 rounded font-bold uppercase ${u.role === 'admin' ? 'bg-red-100 text-red-700' : 'bg-zinc-100 text-zinc-600'}">${u.role === 'admin' ? 'Admin' : 'Colab'}</span></td><td class="p-3 text-right">${u.id === 1 ? '<span class="text-xs text-zinc-300 px-2">Sistema</span>' : `<button onclick="handleDeleteUser(${u.id})" class="text-zinc-400 hover:text-red-600 p-1"><i data-lucide="user-x" class="w-4 h-4"></i></button>`}</td></tr>`).join('');
-            try { lucide.createIcons(); } catch(e){}
-        }
+        // CRUD Usuários
+        function renderUsersTable() { document.getElementById('table-users').innerHTML = dbUsuarios.map(u => `<tr class="hover:bg-stone-50"><td class="p-3 font-semibold">${u.nome}</td><td class="p-3 text-zinc-500 font-mono text-xs">${u.email}</td><td class="p-3"><span class="text-xs px-2 py-0.5 rounded font-bold uppercase ${u.role === 'admin' ? 'bg-red-100 text-red-700' : 'bg-zinc-100 text-zinc-600'}">${u.role === 'admin' ? 'Admin' : 'Colab'}</span></td><td class="p-3 text-right">${u.id === 1 ? '<span class="text-xs text-zinc-300 px-2">Sistema</span>' : `<button onclick="handleDeleteUser(${u.id})" class="text-zinc-400 hover:text-red-600 p-1"><i data-lucide="user-x" class="w-4 h-4"></i></button>`}</td></tr>`).join(''); try { lucide.createIcons(); } catch(e){} }
+        function handleCreateUser(e) { e.preventDefault(); const nome = document.getElementById('adm-user-name').value; const email = document.getElementById('adm-user-email').value.toLowerCase(); const senha = document.getElementById('adm-user-password').value; const role = document.getElementById('adm-user-role').value; if (dbUsuarios.some(u => u.email === email)) return alert('⚠️ E-mail já cadastrado!'); dbUsuarios.push({ id: dbUsuarios.length + 1, nome, email, senha, role }); document.getElementById('adm-user-name').value = ''; document.getElementById('adm-user-email').value = ''; document.getElementById('adm-user-password').value = ''; renderUsersTable(); alert(`Usuário criado!`); }
+        function handleDeleteUser(id) { if (confirm('Deseja remover o usuário?')) { dbUsuarios = dbUsuarios.filter(u => u.id !== id); renderUsersTable(); } }
 
-        function handleCreateUser(e) {
-            e.preventDefault(); const nome = document.getElementById('adm-user-name').value.trim(); const email = document.getElementById('adm-user-email').value.trim().toLowerCase(); const senha = document.getElementById('adm-user-password').value; const role = document.getElementById('adm-user-role').value;
-            if (dbUsuarios.some(u => u.email.toLowerCase() === email)) return alert('⚠️ E-mail já cadastrado!');
-            dbUsuarios.push({ id: dbUsuarios.length + 1, nome, email, senha, role }); document.getElementById('adm-user-name').value = ''; document.getElementById('adm-user-email').value = ''; document.getElementById('adm-user-password').value = ''; renderUsersTable(); alert(`🎉 Usuário cadastrado!`);
-        }
-        function handleDeleteUser(id) { if (confirm('Deseja remover?')) { dbUsuarios = dbUsuarios.filter(u => u.id !== id); renderUsersTable(); } }
-        
-        // Modal de Documentos
+        // CRUD Documentos
         function openModal() { document.getElementById('modal-doc-sector').value = activeTab; document.getElementById('upload-modal').classList.remove('hidden'); }
         function closeModal() { document.getElementById('upload-modal').classList.add('hidden'); document.getElementById('modal-doc-name').value = ''; }
-        function handleUpload(e) { e.preventDefault(); dbDocumentos.push({ id: dbDocumentos.length + 1, nome: document.getElementById('modal-doc-name').value, tipo: document.getElementById('modal-doc-type').value, sector: document.getElementById('modal-doc-sector').value }); closeModal(); if(activeTab === document.getElementById('modal-doc-sector').value) switchTab(activeTab); alert(`Publicado.`); }
+        function handleUpload(e) { e.preventDefault(); dbDocumentos.push({ id: Date.now(), nome: document.getElementById('modal-doc-name').value, tipo: document.getElementById('modal-doc-type').value, sector: document.getElementById('modal-doc-sector').value }); closeModal(); if(activeTab === document.getElementById('modal-doc-sector').value) renderSectorContent(activeTab); else switchTab(document.getElementById('modal-doc-sector').value); }
+        function deleteDocument(id) { if(confirm('Excluir documento?')) { dbDocumentos = dbDocumentos.filter(d => d.id !== id); renderSectorContent(activeTab); } }
 
-        // NOVO: Funções do Modal de Eventos
-        function openEventModal() { document.getElementById('event-modal').classList.remove('hidden'); }
+        // CRUD Rede Social
+        function handleCreatePost(e) { e.preventDefault(); const text = document.getElementById('new-post-text').value; if(!text) return; dbPosts.push({ id: Date.now(), userId: sessionUser.id, nome: sessionUser.nome, iniciais: sessionUser.nome.substring(0,2).toUpperCase(), role: sessionUser.role, tempo: "Agora mesmo", texto: text, corAvatar: sessionUser.role === 'admin' ? 'bg-zinc-800' : 'bg-emerald-600' }); document.getElementById('new-post-text').value = ''; renderPosts(); }
+        function deletePost(id) { if(confirm('Apagar publicação?')) { dbPosts = dbPosts.filter(p => p.id !== id); renderPosts(); } }
+
+        // CRUD Eventos Calendário
+        function openEventModal() { document.getElementById('ev-id').value = ''; document.getElementById('event-modal-title').innerHTML = `<i data-lucide="calendar-plus" class="w-4 h-4 inline mr-2 text-orange-500"></i> Novo Evento`; document.getElementById('event-modal').classList.remove('hidden'); try{lucide.createIcons();}catch(e){} }
         function closeEventModal() { document.getElementById('event-modal').classList.add('hidden'); document.getElementById('ev-titulo').value = ''; document.getElementById('ev-dia').value = ''; document.getElementById('ev-desc').value = ''; }
-        
-        function handleCreateEvent(e) {
+        function handleSaveEvent(e) {
             e.preventDefault();
-            dbEventos.push({ 
-                id: dbEventos.length + 1, 
-                dia: document.getElementById('ev-dia').value.padStart(2, '0'), // Garante que dias como '5' fiquem '05'
-                mes: document.getElementById('ev-mes').value.substring(0,3).toUpperCase(), // Pega apenas as 3 primeiras letras
-                titulo: document.getElementById('ev-titulo').value,
-                desc: document.getElementById('ev-desc').value, 
-                corClass: document.getElementById('ev-cor').value 
-            });
-            closeEventModal();
-            renderEventos(); // Redesenha a lista
-            alert(`✅ Evento adicionado ao Calendário!`);
+            const id = document.getElementById('ev-id').value;
+            const eventData = { dia: document.getElementById('ev-dia').value.padStart(2, '0'), mes: document.getElementById('ev-mes').value.substring(0,3).toUpperCase(), titulo: document.getElementById('ev-titulo').value, desc: document.getElementById('ev-desc').value, corClass: document.getElementById('ev-cor').value };
+            if(id) { let ev = dbEventos.find(x => x.id == id); Object.assign(ev, eventData); } 
+            else { eventData.id = Date.now(); dbEventos.push(eventData); }
+            closeEventModal(); renderEventos();
         }
+        function editEvent(id) { 
+            let ev = dbEventos.find(x => x.id == id); 
+            if(ev) {
+                document.getElementById('ev-id').value = ev.id; document.getElementById('ev-titulo').value = ev.titulo; document.getElementById('ev-dia').value = parseInt(ev.dia); document.getElementById('ev-mes').value = ev.mes; document.getElementById('ev-desc').value = ev.desc; document.getElementById('ev-cor').value = ev.corClass;
+                document.getElementById('event-modal-title').innerHTML = `<i data-lucide="edit" class="w-4 h-4 inline mr-2 text-blue-500"></i> Editar Evento`;
+                document.getElementById('event-modal').classList.remove('hidden'); try{lucide.createIcons();}catch(e){}
+            } 
+        }
+        function deleteEvent(id) { if(confirm('Deseja excluir este evento do calendário?')) { dbEventos = dbEventos.filter(e => e.id !== id); renderEventos(); } }
     </script>
 </body>
 </html>
