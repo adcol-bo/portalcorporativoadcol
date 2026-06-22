@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Cores customizadas baseadas na identidade da ADCOL */
         .color-burgundy { color: #8A151B; }
         .bg-burgundy { background-color: #8A151B; }
         .bg-burgundy-hover:hover { background-color: #6B0F14; }
@@ -79,6 +78,16 @@
                         </button>
                     </div>
 
+                    <p class="text-xs uppercase text-orange-400 font-bold px-3 pt-6 mb-2 tracking-wider">Comunicação</p>
+                    <button onclick="switchTab('social')" id="btn-social" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition">
+                        <i data-lucide="message-square" class="w-4 h-4 text-orange-400"></i>
+                        <span>Rede Social Interna</span>
+                    </button>
+                    <button onclick="switchTab('calendar')" id="btn-calendar" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition">
+                        <i data-lucide="calendar-days" class="w-4 h-4 text-orange-400"></i>
+                        <span>Calendário de Eventos</span>
+                    </button>
+
                     <p class="text-xs uppercase text-blue-400 font-bold px-3 pt-6 mb-2 tracking-wider">Apoio ao Colaborador</p>
                     <button onclick="switchTab('ai-assistant')" id="btn-ai-assistant" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition">
                         <i data-lucide="bot" class="w-4 h-4 text-blue-400"></i>
@@ -97,15 +106,12 @@
 
             <div class="p-4 bg-zinc-900 border-t border-zinc-800 space-y-3">
                 <div class="flex items-center space-x-3">
-                    <div class="w-8 h-8 rounded-full bg-burgundy flex items-center justify-center text-xs font-bold text-white uppercase" id="user-avatar-initials">
-                        --
-                    </div>
+                    <div class="w-8 h-8 rounded-full bg-burgundy flex items-center justify-center text-xs font-bold text-white uppercase" id="user-avatar-initials">--</div>
                     <div>
                         <p class="text-xs font-medium text-white truncate w-36" id="sidebar-user-name">Usuário</p>
                         <span id="role-badge" class="inline-block text-[10px] bg-zinc-700 text-zinc-300 px-1.5 py-0.5 rounded uppercase font-bold tracking-wider">Cargo</span>
                     </div>
                 </div>
-
                 <button onclick="handleLogout()" class="w-full flex items-center space-x-2 text-xs text-zinc-400 hover:text-red-400 transition pt-1">
                     <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
                     <span>Sair do sistema</span>
@@ -123,30 +129,27 @@
                 
                 <div id="tab-home" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        
                         <div class="bg-white p-6 rounded-xl shadow-sm border border-zinc-200 border-l-4 border-l-[#8A151B]">
                             <div class="flex items-center space-x-3 mb-3">
                                 <div class="p-2 bg-red-50 text-[#8A151B] rounded-lg"><i data-lucide="shield-check"></i></div>
                                 <h3 class="text-lg font-bold color-graphite">Código de Conduta</h3>
                             </div>
                             <p class="text-sm text-zinc-600 mb-4">Acesse as diretrizes éticas, direitos e deveres fundamentais que regem a conduta de todos os membros da ADCOL.</p>
-                            <a href="https://drive.google.com/file/d/1vTavwk8cyFoozFeu-Gpj1xHsbZ6o1oqh/view?usp=drive_link" target="_blank" class="inline-flex items-center text-xs font-bold color-burgundy hover:underline">
+                            <a href="#" class="inline-flex items-center text-xs font-bold color-burgundy hover:underline">
                                 <i data-lucide="file-text" class="w-4 h-4 mr-1"></i> Visualizar Documento Institucional
                             </a>
                         </div>
-
                         <div class="bg-white p-6 rounded-xl shadow-sm border border-zinc-200 border-l-4 border-l-zinc-700">
                             <div class="flex items-center space-x-3 mb-3">
                                 <div class="p-2 bg-zinc-100 text-zinc-700 rounded-lg"><i data-lucide="trending-up"></i></div>
                                 <h3 class="text-lg font-bold color-graphite">Planejamento Estratégico</h3>
                             </div>
                             <p class="text-sm text-zinc-600 mb-4">Nossa visão de futuro, metas anuais e objetivos de mercado para manter a excelência em consultoria contábil.</p>
-                            <a href="planejamento_estrategico.pdf" target="_blank" class="inline-flex items-center text-xs font-bold color-burgundy hover:underline">
+                            <a href="#" class="inline-flex items-center text-xs font-bold color-burgundy hover:underline">
                                 <i data-lucide="eye" class="w-4 h-4 mr-1"></i> Acompanhar Metas da Empresa
                             </a>
                         </div>
                     </div>
-
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-zinc-200">
                         <h3 class="text-base font-bold color-graphite mb-4 flex items-center">
                             <i data-lucide="megaphone" class="w-4 h-4 mr-2 color-burgundy"></i> Mural de Avisos Gerais
@@ -167,47 +170,24 @@
                                 <i data-lucide="user-plus" class="w-4 h-4 mr-2 text-zinc-500"></i> Cadastrar Novo Usuário
                             </h3>
                             <form onsubmit="handleCreateUser(event)" class="space-y-4">
-                                <div>
-                                    <label class="block text-xs font-bold text-zinc-600 uppercase mb-1">Nome Completo</label>
-                                    <input id="adm-user-name" type="text" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8A151B]" placeholder="Nome do colaborador">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-zinc-600 uppercase mb-1">E-mail Corporativo</label>
-                                    <input id="adm-user-email" type="email" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8A151B]" placeholder="exemplo@adcol.com.br">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-zinc-600 uppercase mb-1">Senha Inicial</label>
-                                    <input id="adm-user-password" type="password" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8A151B]" placeholder="••••••••">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-zinc-600 uppercase mb-1">Nível de Permissão</label>
-                                    <select id="adm-user-role" class="w-full p-2 border border-zinc-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8A151B]">
-                                        <option value="colaborador">Colaborador (Visualização)</option>
-                                        <option value="admin">Administrador (Acesso Total + Uploads)</option>
+                                <div><label class="block text-xs font-bold text-zinc-600 uppercase mb-1">Nome Completo</label><input id="adm-user-name" type="text" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm"></div>
+                                <div><label class="block text-xs font-bold text-zinc-600 uppercase mb-1">E-mail</label><input id="adm-user-email" type="email" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm"></div>
+                                <div><label class="block text-xs font-bold text-zinc-600 uppercase mb-1">Senha Inicial</label><input id="adm-user-password" type="password" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm"></div>
+                                <div><label class="block text-xs font-bold text-zinc-600 uppercase mb-1">Nível</label>
+                                    <select id="adm-user-role" class="w-full p-2 border border-zinc-300 rounded-lg text-sm">
+                                        <option value="colaborador">Colaborador</option>
+                                        <option value="admin">Administrador</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="w-full bg-burgundy text-white py-2 rounded-lg font-semibold text-xs bg-burgundy-hover transition shadow-sm uppercase tracking-wider">
-                                    Salvar Usuário
-                                </button>
+                                <button type="submit" class="w-full bg-burgundy text-white py-2 rounded-lg font-semibold text-xs">Salvar Usuário</button>
                             </form>
                         </div>
-
                         <div class="lg:col-span-2 bg-white p-5 rounded-xl shadow-sm border border-zinc-200">
-                            <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-400 mb-4 flex items-center">
-                                <i data-lucide="users" class="w-4 h-4 mr-2 text-zinc-500"></i> Usuários Ativos no Sistema
-                            </h3>
+                            <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-400 mb-4">Usuários Ativos</h3>
                             <div class="overflow-hidden border border-zinc-100 rounded-lg">
                                 <table class="w-full text-left text-sm">
-                                    <thead class="bg-zinc-50 text-zinc-500 text-xs uppercase font-semibold">
-                                        <tr>
-                                            <th class="p-3">Nome</th>
-                                            <th class="p-3">E-mail</th>
-                                            <th class="p-3">Permissão</th>
-                                            <th class="p-3 text-right">Ações</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="table-users" class="divide-y divide-zinc-100 text-zinc-700">
-                                    </tbody>
+                                    <thead class="bg-zinc-50 text-zinc-500 text-xs uppercase font-semibold"><tr><th class="p-3">Nome</th><th class="p-3">E-mail</th><th class="p-3">Permissão</th><th class="p-3 text-right">Ações</th></tr></thead>
+                                    <tbody id="table-users" class="divide-y divide-zinc-100 text-zinc-700"></tbody>
                                 </table>
                             </div>
                         </div>
@@ -220,41 +200,22 @@
                             <div class="p-2 bg-red-50 text-[#8A151B] rounded-full"><i data-lucide="upload-cloud"></i></div>
                             <div>
                                 <h4 class="text-sm font-bold color-graphite">Área do Administrador</h4>
-                                <p class="text-xs text-zinc-500">Adicione novos arquivos, formulários ou descrições de cargo neste setor.</p>
+                                <p class="text-xs text-zinc-500">Adicione novos arquivos neste setor.</p>
                             </div>
                         </div>
-                        <button onclick="openModal()" class="bg-burgundy text-white px-4 py-2 rounded-lg text-xs font-semibold bg-burgundy-hover transition flex items-center space-x-1 shadow-sm">
-                            <i data-lucide="plus" class="w-3.5 h-3.5"></i>
-                            <span>Adicionar Documento</span>
-                        </button>
+                        <button onclick="openModal()" class="bg-burgundy text-white px-4 py-2 rounded-lg text-xs font-semibold"><i data-lucide="plus" class="w-3.5 h-3.5 inline"></i> Documento</button>
                     </div>
-
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         <div class="lg:col-span-1 bg-white p-5 rounded-xl shadow-sm border border-zinc-200">
-                            <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-400 mb-4 flex items-center">
-                                <i data-lucide="briefcase" class="w-4 h-4 mr-2 text-zinc-500"></i> Cargos e Funções
-                            </h3>
-                            <ul id="list-cargos" class="space-y-2 text-sm text-zinc-600">
-                            </ul>
+                            <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-400 mb-4"><i data-lucide="briefcase" class="w-4 h-4 inline"></i> Cargos</h3>
+                            <ul id="list-cargos" class="space-y-2 text-sm text-zinc-600"></ul>
                         </div>
-
                         <div class="lg:col-span-2 bg-white p-5 rounded-xl shadow-sm border border-zinc-200">
-                            <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-400 mb-4 flex items-center">
-                                <i data-lucide="folder-open" class="w-4 h-4 mr-2 text-zinc-500"></i> Manuais e Formulários Operacionais
-                            </h3>
-                            <div class="overflow-hidden border border-zinc-100 rounded-lg">
-                                <table class="w-full text-left text-sm">
-                                    <thead class="bg-zinc-50 text-zinc-500 text-xs uppercase font-semibold">
-                                        <tr>
-                                            <th class="p-3">Nome do Documento</th>
-                                            <th class="p-3">Tipo</th>
-                                            <th class="p-3 text-right">Ação</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="table-documents" class="divide-y divide-zinc-100 text-zinc-700">
-                                    </tbody>
-                                </table>
-                            </div>
+                            <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-400 mb-4"><i data-lucide="folder-open" class="w-4 h-4 inline"></i> Documentos</h3>
+                            <table class="w-full text-left text-sm border border-zinc-100 rounded-lg overflow-hidden">
+                                <thead class="bg-zinc-50 text-zinc-500 text-xs uppercase font-semibold"><tr><th class="p-3">Nome</th><th class="p-3">Tipo</th><th class="p-3 text-right">Ação</th></tr></thead>
+                                <tbody id="table-documents" class="divide-y divide-zinc-100 text-zinc-700"></tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -264,126 +225,37 @@
                         <div class="p-3 bg-blue-600 text-white rounded-full"><i data-lucide="bot" class="w-6 h-6"></i></div>
                         <div>
                             <h3 class="font-bold text-blue-900">Olá! Eu sou o Assistente Virtual da ADCOL</h3>
-                            <p class="text-sm text-blue-800 mt-1">Fui treinado com todos os Manuais e POPs da empresa. Me faça uma pergunta sobre processos internos, sistemas ou RH, e eu te darei o passo a passo!</p>
+                            <p class="text-sm text-blue-800 mt-1">Me faça uma pergunta sobre processos internos, e eu te darei o passo a passo!</p>
                         </div>
                     </div>
-
                     <div class="flex-1 bg-white border border-zinc-200 rounded-xl p-4 overflow-y-auto space-y-4 shadow-sm">
-                        <div class="flex justify-end">
-                            <div class="bg-zinc-100 p-3 rounded-xl rounded-tr-none max-w-[80%] text-sm text-zinc-700">
-                                Como faço para enviar a DCTFWeb do cliente?
-                            </div>
-                        </div>
+                        <div class="flex justify-end"><div class="bg-zinc-100 p-3 rounded-xl rounded-tr-none max-w-[80%] text-sm">Como faço para enviar a DCTFWeb do cliente?</div></div>
                         <div class="flex justify-start">
-                            <div class="bg-blue-50 p-3 rounded-xl rounded-tl-none max-w-[80%] text-sm text-zinc-800 border border-blue-100">
+                            <div class="bg-blue-50 p-3 rounded-xl rounded-tl-none max-w-[80%] text-sm border border-blue-100">
                                 <p class="font-bold mb-2 text-blue-900">Com base no POP do Setor Fiscal, aqui está o passo a passo:</p>
-                                <ol class="list-decimal ml-4 space-y-1 text-zinc-700">
-                                    <li>Acesse o Portal e-CAC usando o certificado digital do cliente.</li>
-                                    <li>Vá em "Declarações e Demonstrativos" e clique em "Assinar e Transmitir DCTFWeb".</li>
-                                    <li>Selecione o período de apuração correspondente.</li>
-                                    <li>Clique no botão "Transmitir" e salve o recibo de entrega na pasta do cliente na rede.</li>
-                                </ol>
-                                <p class="mt-2 text-xs text-blue-600 font-bold cursor-pointer hover:underline"><i data-lucide="file-text" class="w-3 h-3 inline"></i> Ver o Checklist Completo (Setor Fiscal)</p>
+                                <ol class="list-decimal ml-4 space-y-1 text-zinc-700"><li>Acesse o Portal e-CAC...</li><li>Vá em "Declarações"...</li><li>Transmita e salve...</li></ol>
                             </div>
                         </div>
                     </div>
-
-                    <div class="bg-white border border-zinc-200 rounded-xl p-2 flex items-center shadow-sm flex-shrink-0">
-                        <input type="text" class="flex-1 p-2 outline-none text-sm" placeholder="Ex: Qual o procedimento para abrir uma empresa LTDA?">
-                        <button class="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"><i data-lucide="send" class="w-4 h-4"></i></button>
+                    <div class="bg-white border border-zinc-200 rounded-xl p-2 flex items-center flex-shrink-0">
+                        <input type="text" class="flex-1 p-2 outline-none text-sm" placeholder="Digite sua pergunta...">
+                        <button class="p-2 bg-blue-600 text-white rounded-lg"><i data-lucide="send" class="w-4 h-4"></i></button>
                     </div>
                 </div>
 
                 <div id="tab-onboarding" class="hidden space-y-6">
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-zinc-200">
-                        <h3 class="text-lg font-bold color-graphite mb-2 flex items-center">
-                            <i data-lucide="map" class="w-5 h-5 mr-2 text-emerald-600"></i> Sua Trilha de Integração (Onboarding)
-                        </h3>
-                        <p class="text-sm text-zinc-500 mb-6">Siga os passos abaixo para concluir seu treinamento inicial na ADCOL. Os processos específicos do seu setor serão liberados após a etapa geral.</p>
-
-                        <div class="space-y-4">
-                            <div class="flex items-center p-4 border border-emerald-200 bg-emerald-50 rounded-lg">
-                                <div class="bg-emerald-500 text-white p-2 rounded-full mr-4"><i data-lucide="check" class="w-4 h-4"></i></div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-emerald-900 text-sm">Passo 1: Boas-vindas e Institucional</h4>
-                                    <p class="text-xs text-emerald-700">Leitura do Código de Conduta e Planejamento Estratégico.</p>
-                                </div>
-                                <span class="text-xs font-bold text-emerald-600 bg-emerald-100 px-2 py-1 rounded">Concluído</span>
-                            </div>
-
-                            <div class="flex items-center p-4 border-2 border-emerald-500 bg-white rounded-lg shadow-sm">
-                                <div class="bg-emerald-100 text-emerald-600 p-2 rounded-full mr-4"><i data-lucide="play" class="w-4 h-4"></i></div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-zinc-800 text-sm">Passo 2: Sistemas Internos</h4>
-                                    <p class="text-xs text-zinc-500">Treinamento de como utilizar o sistema contábil principal.</p>
-                                </div>
-                                <button class="text-xs font-bold text-white bg-emerald-500 hover:bg-emerald-600 px-4 py-2 rounded transition shadow-sm">Iniciar Módulo</button>
-                            </div>
-
-                            <div class="flex items-center p-4 border border-zinc-200 bg-zinc-50 rounded-lg opacity-60">
-                                <div class="bg-zinc-200 text-zinc-500 p-2 rounded-full mr-4"><i data-lucide="lock" class="w-4 h-4"></i></div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-zinc-600 text-sm">Passo 3: Processos Específicos do Seu Setor</h4>
-                                    <p class="text-xs text-zinc-400">Bloqueado. Conclua os passos anteriores.</p>
-                                </div>
-                            </div>
+                        <h3 class="text-lg font-bold color-graphite mb-2"><i data-lucide="map" class="w-5 h-5 inline text-emerald-600"></i> Sua Trilha de Integração</h3>
+                        <div class="space-y-4 mt-6">
+                            <div class="flex items-center p-4 border border-emerald-200 bg-emerald-50 rounded-lg"><div class="bg-emerald-500 text-white p-2 rounded-full mr-4"><i data-lucide="check" class="w-4 h-4"></i></div><div class="flex-1"><h4 class="font-bold text-sm">Passo 1: Boas-vindas</h4></div><span class="text-xs font-bold text-emerald-600 bg-emerald-100 px-2 py-1 rounded">Concluído</span></div>
+                            <div class="flex items-center p-4 border-2 border-emerald-500 bg-white rounded-lg"><div class="bg-emerald-100 text-emerald-600 p-2 rounded-full mr-4"><i data-lucide="play" class="w-4 h-4"></i></div><div class="flex-1"><h4 class="font-bold text-sm">Passo 2: Sistemas Internos</h4></div><button class="text-xs font-bold text-white bg-emerald-500 px-4 py-2 rounded">Iniciar</button></div>
                         </div>
                     </div>
                 </div>
 
-            </div>
-
-            <footer class="mt-auto py-3 px-6 border-t border-zinc-200 text-center text-[11px] text-zinc-400 bg-white flex-shrink-0">
-                <p>&copy; 2026 ADCOL Assessoria &amp; Consultoria Cont&aacute;bil. Todos os direitos reservados. Sistema de uso restrito e exclusivo para colaboradores autorizados.</p>
-            </footer>
-
-        </main>
-    </div>
-
-    <div id="upload-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-xl shadow-2xl p-6 w-full max-w-md border border-zinc-100 transform transition-all scale-100">
-            <div class="flex items-center justify-between mb-4 pb-2 border-b border-zinc-100">
-                <h3 class="text-base font-bold color-graphite flex items-center">
-                    <i data-lucide="file-plus" class="w-4 h-4 mr-2 color-burgundy"></i> Inserir Novo Documento
-                </h3>
-                <button onclick="closeModal()" class="text-zinc-400 hover:text-zinc-600"><i data-lucide="x" class="w-5 h-5"></i></button>
-            </div>
-            
-            <form onsubmit="handleUpload(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold uppercase text-zinc-500 mb-1">Nome do Arquivo / Formulário</label>
-                    <input id="modal-doc-name" type="text" required class="w-full p-2 border border-zinc-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8A151B]" placeholder="Ex: Checklist Admissional de Clientes">
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-zinc-500 mb-1">Categoria</label>
-                        <select id="modal-doc-type" class="w-full p-2 border border-zinc-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8A151B]">
-                            <option value="Formulário">Formulário</option>
-                            <option value="Manual">Manual Técnico</option>
-                            <option value="Cargo">Descrição de Cargo</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-zinc-500 mb-1">Setor Destino</label>
-                        <select id="modal-doc-sector" class="w-full p-2 border border-zinc-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8A151B]">
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase text-zinc-500 mb-1">Selecionar Arquivo (Simulado)</label>
-                    <div class="border-2 border-dashed border-zinc-200 rounded-lg p-4 text-center cursor-pointer hover:bg-stone-50 transition">
-                        <i data-lucide="paperclip" class="w-6 h-6 mx-auto text-zinc-400 mb-1"></i>
-                        <span class="text-xs text-zinc-500 block font-medium">Clique para selecionar PDF, Word ou Excel</span>
-                    </div>
-                </div>
-                <div class="flex space-x-3 pt-2 justify-end text-xs font-semibold">
-                    <button type="button" onclick="closeModal()" class="px-4 py-2 border border-zinc-300 rounded-lg hover:bg-zinc-50 transition text-zinc-600">Cancelar</button>
-                    <button type="submit" class="px-4 py-2 bg-burgundy text-white rounded-lg bg-burgundy-hover transition shadow-sm">Salvar no Setor</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <script>
+                <div id="tab-social" class="hidden space-y-6">
+                    <div class="max-w-3xl mx-auto space-y-6">
+<script>
         const setores = ["Diretoria", "Pessoal", "Fiscal", "Contábil", "TI", "Legalização"];
         
         let dbUsuarios = [
@@ -398,9 +270,7 @@
             { id: 4, nome: "Manual Prático de Admissão e Demissão", tipo: "Manual", sector: "Pessoal" },
             { id: 5, nome: "Guia de Validação de Sped Fiscal", tipo: "Manual", sector: "Fiscal" },
             { id: 6, nome: "Checklist de Envio de DCTFWeb", tipo: "Formulário", sector: "Fiscal" },
-            { id: 7, nome: "Plano de Contas Padronizado de Clientes", tipo: "Manual", sector: "Contábil" },
-            { id: 8, nome: "Termo de Responsabilidade de Equipamentos", tipo: "Formulário", sector: "TI" },
-            { id: 9, nome: "Processo de Abertura de Empresas LTDA", tipo: "Manual", sector: "Legalização" },
+            { id: 7, nome: "Plano de Contas Padronizado de Clientes", tipo: "Manual", sector: "Contábil" }
         ];
 
         let sessionUser = null; 
@@ -410,7 +280,7 @@
             renderSectorMenus();
             populateModalSectors();
             updateDate();
-            try { lucide.createIcons(); } catch(e) { console.log('Carregando ícones...'); }
+            try { lucide.createIcons(); } catch(e) {}
         });
 
         function updateDate() {
@@ -422,10 +292,7 @@
             const menuContainer = document.getElementById('sector-menu-list');
             menuContainer.innerHTML = setores.map(setor => `
                 <button onclick="switchTab('${setor}')" id="btn-sector-${setor}" class="w-full flex items-center justify-between px-3 py-2 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition">
-                    <div class="flex items-center space-x-3">
-                        <i data-lucide="folder" class="w-4 h-4 text-zinc-400"></i>
-                        <span>${setor}</span>
-                    </div>
+                    <div class="flex items-center space-x-3"><i data-lucide="folder" class="w-4 h-4 text-zinc-400"></i><span>${setor}</span></div>
                     <i data-lucide="chevron-right" class="w-3 h-3 text-zinc-500"></i>
                 </button>
             `).join('');
@@ -439,44 +306,53 @@
         function switchTab(target) {
             activeTab = target;
             
-            document.getElementById('btn-home').className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition";
-            
-            if (document.getElementById('btn-admin-panel')) {
-                document.getElementById('btn-admin-panel').className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition";
-            }
-            if (document.getElementById('btn-ai-assistant')) {
-                document.getElementById('btn-ai-assistant').className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition";
-            }
-            if (document.getElementById('btn-onboarding')) {
-                document.getElementById('btn-onboarding').className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition";
-            }
+            // Reseta cores de todos os botões
+            const defaultClass = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition";
+            document.getElementById('btn-home').className = defaultClass;
+            if(document.getElementById('btn-admin-panel')) document.getElementById('btn-admin-panel').className = defaultClass;
+            if(document.getElementById('btn-social')) document.getElementById('btn-social').className = defaultClass;
+            if(document.getElementById('btn-calendar')) document.getElementById('btn-calendar').className = defaultClass;
+            if(document.getElementById('btn-ai-assistant')) document.getElementById('btn-ai-assistant').className = defaultClass;
+            if(document.getElementById('btn-onboarding')) document.getElementById('btn-onboarding').className = defaultClass;
 
             setores.forEach(s => {
                 const btn = document.getElementById(`btn-sector-${s}`);
                 if(btn) btn.className = "w-full flex items-center justify-between px-3 py-2 rounded-lg text-zinc-300 hover:bg-zinc-800 text-sm font-medium transition";
             });
 
-            document.getElementById('tab-home').classList.add('hidden');
-            document.getElementById('tab-admin-panel').classList.add('hidden');
-            document.getElementById('tab-sector').classList.add('hidden');
-            document.getElementById('tab-ai-assistant')?.classList.add('hidden');
-            document.getElementById('tab-onboarding')?.classList.add('hidden');
+            // Esconde todas as abas
+            const tabs = ['tab-home', 'tab-admin-panel', 'tab-social', 'tab-calendar', 'tab-ai-assistant', 'tab-onboarding', 'tab-sector'];
+            tabs.forEach(t => {
+                const el = document.getElementById(t);
+                if(el) el.classList.add('hidden');
+            });
 
+            // Ativa o botão e mostra a aba correspondente
+            const activeClass = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-burgundy text-white text-sm font-medium transition";
+            
             if (target === 'home') {
-                document.getElementById('btn-home').className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-burgundy text-white text-sm font-medium transition";
+                document.getElementById('btn-home').className = activeClass;
                 document.getElementById('page-title').innerText = "Início / Dashboard";
                 document.getElementById('tab-home').classList.remove('hidden');
             } else if (target === 'admin-panel') {
-                document.getElementById('btn-admin-panel').className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-burgundy text-white text-sm font-medium transition";
+                document.getElementById('btn-admin-panel').className = activeClass;
                 document.getElementById('page-title').innerText = "Administração / Controle de Usuários";
                 document.getElementById('tab-admin-panel').classList.remove('hidden');
                 renderUsersTable();
+            } else if (target === 'social') {
+                document.getElementById('btn-social').className = activeClass;
+                document.getElementById('page-title').innerText = "Comunicação / Rede Social Interna";
+                document.getElementById('tab-social').classList.remove('hidden');
+            } else if (target === 'calendar') {
+                document.getElementById('btn-calendar').className = activeClass;
+                document.getElementById('page-title').innerText = "Comunicação / Calendário Corporativo";
+                document.getElementById('tab-calendar').classList.remove('hidden');
             } else if (target === 'ai-assistant') {
-                document.getElementById('btn-ai-assistant').className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-burgundy text-white text-sm font-medium transition";
+                document.getElementById('btn-ai-assistant').className = activeClass;
                 document.getElementById('page-title').innerText = "Assistente de IA / Dúvidas Frequentes";
                 document.getElementById('tab-ai-assistant').classList.remove('hidden');
             } else if (target === 'onboarding') {
-                document.getElementById('btn-onboarding').className = "w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-burgundy text-white text-sm font-medium transition";
+                document.getElementById('btn-onboarding').className = activeClass;
                 document.getElementById('page-title').innerText = "Treinamento / Trilha de Capacitação";
                 document.getElementById('tab-onboarding').classList.remove('hidden');
             } else {
@@ -493,43 +369,23 @@
             const docsSetor = dbDocumentos.filter(d => d.sector === sectorName);
             
             const cargosList = docsSetor.filter(d => d.tipo === 'Cargo');
-            const listCargosEl = document.getElementById('list-cargos');
-            listCargosEl.innerHTML = cargosList.length === 0 
-                ? `<li class="text-xs text-zinc-400 italic">Nenhuma descrição de cargo vinculada.</li>`
-                : cargosList.map(c => `
-                    <li class="flex items-center space-x-2 p-1.5 hover:bg-stone-50 rounded transition">
-                        <i data-lucide="file-text" class="w-3.5 h-3.5 text-zinc-400"></i>
-                        <span class="hover:underline cursor-pointer font-medium">${c.nome}</span>
-                    </li>
-                `).join('');
+            document.getElementById('list-cargos').innerHTML = cargosList.length === 0 
+                ? `<li class="text-xs text-zinc-400 italic">Nenhuma descrição vinculada.</li>`
+                : cargosList.map(c => `<li class="flex items-center space-x-2 p-1.5 hover:bg-stone-50 rounded"><i data-lucide="file-text" class="w-3.5 h-3.5 text-zinc-400"></i><span class="hover:underline cursor-pointer font-medium">${c.nome}</span></li>`).join('');
 
             const docsTabela = docsSetor.filter(d => d.tipo !== 'Cargo');
-            const tableDocsEl = document.getElementById('table-documents');
-            tableDocsEl.innerHTML = docsTabela.length === 0
-                ? `<tr><td colspan="3" class="p-4 text-center text-xs text-zinc-400 italic">Nenhum documento neste setor.</td></tr>`
+            document.getElementById('table-documents').innerHTML = docsTabela.length === 0
+                ? `<tr><td colspan="3" class="p-4 text-center text-xs text-zinc-400 italic">Nenhum documento.</td></tr>`
                 : docsTabela.map(d => `
-                    <tr class="hover:bg-stone-50 transition">
-                        <td class="p-3 font-medium text-zinc-800">${d.nome}</td>
-                        <td class="p-3">
-                            <span class="inline-block text-xs px-2 py-0.5 rounded-full ${d.tipo === 'Formulário' ? 'bg-blue-50 text-blue-700 border border-blue-100' : 'bg-emerald-50 text-emerald-700 border border-emerald-100'}">
-                                ${d.tipo}
-                            </span>
-                        </td>
-                        <td class="p-3 text-right">
-                            <button class="text-zinc-400 hover:text-[#8A151B] transition p-1" title="Download"><i data-lucide="download" class="w-4 h-4"></i></button>
-                        </td>
-                    </tr>
+                    <tr class="hover:bg-stone-50"><td class="p-3 font-medium text-zinc-800">${d.nome}</td><td class="p-3"><span class="inline-block text-xs px-2 py-0.5 rounded-full ${d.tipo === 'Formulário' ? 'bg-blue-50 text-blue-700' : 'bg-emerald-50 text-emerald-700'}">${d.tipo}</span></td><td class="p-3 text-right"><button class="text-zinc-400 hover:text-[#8A151B] p-1"><i data-lucide="download" class="w-4 h-4"></i></button></td></tr>
                 `).join('');
             try { lucide.createIcons(); } catch(e){}
         }
 
         function handleLogin(e) {
             e.preventDefault();
-            const emailInput = document.getElementById('login-email');
-            const senhaInput = document.getElementById('login-senha');
-            const emailDigitado = emailInput.value.trim().toLowerCase(); 
-            const senhaDigitada = senhaInput.value.trim();
-
+            const emailDigitado = document.getElementById('login-email').value.trim().toLowerCase(); 
+            const senhaDigitada = document.getElementById('login-senha').value.trim();
             const user = dbUsuarios.find(u => u.email.toLowerCase() === emailDigitado && u.senha === senhaDigitada);
 
             if (user) {
@@ -538,25 +394,20 @@
                 document.getElementById('user-avatar-initials').innerText = user.nome.substring(0, 2);
                 
                 const badge = document.getElementById('role-badge');
-                const uploadZone = document.getElementById('admin-upload-zone');
-                const adminMenu = document.getElementById('admin-menu-section');
-
                 if (user.role === 'admin') {
-                    if(badge) badge.className = "inline-block text-[10px] bg-red-200 text-red-800 px-1.5 py-0.5 rounded uppercase font-bold tracking-wider";
-                    if(badge) badge.innerText = "Administrador";
-                    if(uploadZone) uploadZone.classList.remove('hidden');
-                    if(adminMenu) adminMenu.classList.remove('hidden'); 
+                    if(badge) { badge.className = "inline-block text-[10px] bg-red-200 text-red-800 px-1.5 py-0.5 rounded uppercase font-bold"; badge.innerText = "Administrador"; }
+                    document.getElementById('admin-upload-zone')?.classList.remove('hidden');
+                    document.getElementById('admin-menu-section')?.classList.remove('hidden'); 
                 } else {
-                    if(badge) badge.className = "inline-block text-[10px] bg-zinc-700 text-zinc-300 px-1.5 py-0.5 rounded uppercase font-bold tracking-wider";
-                    if(badge) badge.innerText = "Colaborador";
-                    if(uploadZone) uploadZone.classList.add('hidden');
-                    if(adminMenu) adminMenu.classList.add('hidden'); 
+                    if(badge) { badge.className = "inline-block text-[10px] bg-zinc-700 text-zinc-300 px-1.5 py-0.5 rounded uppercase font-bold"; badge.innerText = "Colaborador"; }
+                    document.getElementById('admin-upload-zone')?.classList.add('hidden');
+                    document.getElementById('admin-menu-section')?.classList.add('hidden'); 
                 }
 
                 document.getElementById('login-screen').classList.add('hidden');
                 document.getElementById('main-app').classList.remove('hidden');
-                emailInput.value = '';
-                senhaInput.value = '';
+                document.getElementById('login-email').value = '';
+                document.getElementById('login-senha').value = '';
                 switchTab('home');
             } else {
                 alert('⚠️ Acesso Negado! Verifique e-mail e senha.');
@@ -573,22 +424,7 @@
             const tableBody = document.getElementById('table-users');
             if(!tableBody) return;
             tableBody.innerHTML = dbUsuarios.map(u => `
-                <tr class="hover:bg-stone-50 transition">
-                    <td class="p-3 font-semibold text-zinc-800">${u.nome}</td>
-                    <td class="p-3 text-zinc-500 font-mono text-xs">${u.email}</td>
-                    <td class="p-3">
-                        <span class="inline-block text-xs px-2 py-0.5 rounded font-bold uppercase tracking-wide ${u.role === 'admin' ? 'bg-red-100 text-red-700' : 'bg-zinc-100 text-zinc-600'}">
-                            ${u.role === 'admin' ? 'Admin' : 'Colaborador'}
-                        </span>
-                    </td>
-                    <td class="p-3 text-right">
-                        ${u.id === 1 ? '<span class="text-xs text-zinc-300 italic px-2">Sistema</span>' : `
-                            <button onclick="handleDeleteUser(${u.id})" class="text-zinc-400 hover:text-red-600 transition p-1" title="Excluir Usuário">
-                                <i data-lucide="user-x" class="w-4 h-4"></i>
-                            </button>
-                        `}
-                    </td>
-                </tr>
+                <tr class="hover:bg-stone-50"><td class="p-3 font-semibold">${u.nome}</td><td class="p-3 text-zinc-500 font-mono text-xs">${u.email}</td><td class="p-3"><span class="text-xs px-2 py-0.5 rounded font-bold uppercase ${u.role === 'admin' ? 'bg-red-100 text-red-700' : 'bg-zinc-100 text-zinc-600'}">${u.role === 'admin' ? 'Admin' : 'Colab'}</span></td><td class="p-3 text-right">${u.id === 1 ? '<span class="text-xs text-zinc-300 px-2">Sistema</span>' : `<button onclick="handleDeleteUser(${u.id})" class="text-zinc-400 hover:text-red-600 p-1"><i data-lucide="user-x" class="w-4 h-4"></i></button>`}</td></tr>
             `).join('');
             try { lucide.createIcons(); } catch(e){}
         }
@@ -600,56 +436,32 @@
             const senha = document.getElementById('adm-user-password').value;
             const role = document.getElementById('adm-user-role').value;
 
-            if (dbUsuarios.some(u => u.email.toLowerCase() === email)) {
-                alert('⚠️ Esse e-mail já está cadastrado!');
-                return;
-            }
-
-            const novoUsuario = { id: dbUsuarios.length + 1, nome, email, senha, role };
-            dbUsuarios.push(novoUsuario);
-            
-            document.getElementById('adm-user-name').value = '';
-            document.getElementById('adm-user-email').value = '';
-            document.getElementById('adm-user-password').value = '';
-
-            renderUsersTable();
-            alert(`🎉 Usuário "${nome}" cadastrado!`);
+            if (dbUsuarios.some(u => u.email.toLowerCase() === email)) return alert('⚠️ E-mail já cadastrado!');
+            dbUsuarios.push({ id: dbUsuarios.length + 1, nome, email, senha, role });
+            document.getElementById('adm-user-name').value = ''; document.getElementById('adm-user-email').value = ''; document.getElementById('adm-user-password').value = '';
+            renderUsersTable(); alert(`🎉 Usuário cadastrado!`);
         }
 
         function handleDeleteUser(id) {
-            if (confirm('Deseja remover este usuário?')) {
-                dbUsuarios = dbUsuarios.filter(u => u.id !== id);
-                renderUsersTable();
-            }
+            if (confirm('Deseja remover este usuário?')) { dbUsuarios = dbUsuarios.filter(u => u.id !== id); renderUsersTable(); }
         }
 
-        function openModal() {
-            document.getElementById('modal-doc-sector').value = activeTab;
-            document.getElementById('upload-modal').classList.remove('hidden');
-        }
-
-        function closeModal() {
-            document.getElementById('upload-modal').classList.add('hidden');
-            document.getElementById('modal-doc-name').value = '';
-        }
+        function openModal() { document.getElementById('modal-doc-sector').value = activeTab; document.getElementById('upload-modal').classList.remove('hidden'); }
+        function closeModal() { document.getElementById('upload-modal').classList.add('hidden'); document.getElementById('modal-doc-name').value = ''; }
 
         function handleUpload(e) {
             e.preventDefault();
             const name = document.getElementById('modal-doc-name').value;
             const type = document.getElementById('modal-doc-type').value;
             const sector = document.getElementById('modal-doc-sector').value;
-
-            const newDoc = { id: dbDocumentos.length + 1, nome: name, tipo: type, sector: sector };
-            dbDocumentos.push(newDoc);
+            dbDocumentos.push({ id: dbDocumentos.length + 1, nome: name, tipo: type, sector: sector });
             closeModal();
-            
-            if(activeTab === sector) {
-                renderSectorContent(sector);
-            } else {
-                switchTab(sector);
-            }
-            alert(`Sucesso! Publicado em ${sector}.`);
+            if(activeTab === sector) renderSectorContent(sector); else switchTab(sector);
+            alert(`Publicado em ${sector}.`);
         }
     </script>
 </body>
-</html>
+</html>                        
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-zinc-200">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-10 h-10 rounded-full bg-burgundy flex items
